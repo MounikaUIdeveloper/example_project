@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <title>Array Maniplication</title>
+    <script>
+     var categories =["All","Electronics","Fashion"];
+     function LoadCategories(){
+        document.getElementById("lstCategories").innerHTML="";
+        for(var category of categories)
+        {
+          var option = document.createElement("option");
+          option.text=category;
+          option.value=category;
+          document.getElementById("lstCategories").appendChild(option);
+       }
+     }
+     function bodyload(){
+        LoadCategories();
+     }
+     function AddClick(){
+        var categoryName = document.getElementById("txtCategory").value;
+        categories.push(categoryName);
+        LoadCategories();
+        alert(`${categoryName} Added to the list`);
+        document.getElementById("txtCategory").value="";
+     }
+     function RemoveClick(){
+        var categoryName=document.getElementById("lstCategories").value;
+        var categoryIndex = categories.indexOf(categoryName);
+        var flag=confirm(`Are you sure\nwant to Delete ${categoryName}`);
+        if(flag==true){
+            categories.splice(categoryIndex,1);
+            LoadCategories();            
+        }
+     }
+     function NewClick(){
+       newCategory=prompt("Enter Category Name", "Footware");
+       if(newCategory==null){
+         alert("Category Removed");
+       }else if(newCategory==""){
+          alert("Please Enter Your Category Name");
+       }else{
+         document.getElementById("msg").innerHTML +="categoryName:" + newCategory + "<br>";
+         document.getElementById("msg").style="color:green";
+       }
+     }
+    </script>
+</head>
+<body class="container-fluid" onload="bodyload()">
+  <div class="row">
+      <h2 class="text-success">Array Maniplication</h2>
+      <div class="col-4">
+         <label for="Categories">Add New Categories : </label>
+         <div class="input-group mb-2">
+             <input type="text" id="txtCategory" class="form-control">
+             <button  onclick="AddClick()" class="btn btn-primary">ADD</button>
+         </div>
+      </div>
+      <div class="mt-2 col-4">
+         <label for="cat-List">category list</label>
+         <div>
+             <select size="3" id="lstCategories" class="form-select">
+
+             </select>
+         </div>
+         <div class="mt-2">
+              <button onclick="RemoveClick()" class="btn btn-outline-danger">
+                 <span class="bi bi-trash-fill">Remove Categories</span>
+              </button>
+              <button onclick="NewClick()" class="btn btn-outline-info">
+                <span class="bi bi-plus-circle">New Categories</span>
+             </button>
+             <p id="msg"></p>
+         </div>
+      </div>
+</div>  
+</body>
+</html>

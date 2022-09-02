@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image create</title>
+    <script>
+        function CreateClick(){
+         var pic=document.createElement("img");
+         pic.src="../images/Lakshmana_Temple_24.jpg";
+         pic.width="100";
+         pic.height="100";
+         pic.border="1";
+         document.querySelector("div").appendChild(pic);
+        }
+    </script>
+</head>
+<body>
+    <button onclick="CreateClick()">Create image</button>
+    <div></div>
+</body>
+</html>

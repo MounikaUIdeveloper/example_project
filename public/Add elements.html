@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Elements</title>
+    <script>
+     var Categories = ["All","Electronics","Footware","Fashion"];
+     Categories.unshift("Fashion","Chudidhar's","Lehengas","Sarees");
+     Categories.unshift("Footware","Casuals","Shoes","Slippers");
+     Categories.unshift("Electronics","LED Tv's","Watches","Mobiles","SMART Phones");
+     Categories.unshift("All");
+     function LoadClick()
+        {
+         for(var category of Categories)
+           {
+             li=document.createElement("li");
+             li.innerHTML=category;
+             document.querySelector("ol").appendChild(li);
+             var option =document.createElement("option");
+             option.text=category.toUpperCase();
+             option.value=category;
+             document.querySelector("select").appendChild(option);
+             var tr=document.createElement("tr");
+             var td=document.createElement("td");
+             td.innerHTML=category;
+             tr.appendChild(td);
+             document.querySelector("tbody").appendChild(tr);
+             var ulLi =document.createElement("ulLi");
+              ulLi.innerHTML=`
+               <input type="ChecKbox"> ${category}
+              `;
+              document.querySelector("ul").appendChild(ulLi)
+            }
+        }
+    </script>
+</head>
+<body>
+    <button onclick="LoadClick()">Load Categories</button>
+    <h2>Categories</h2>
+    <ol></ol>
+    <h2>Select Categories</h2>
+    <select>
+
+    </select>
+    <br><br>
+    <h2>Categories</h2>
+    <table  border="1" width="300">
+     <thead>
+         <tr>
+             <th>Categories</th>
+         </tr>
+     </thead>
+     <tbody>
+
+     </tbody>
+    </table>
+    <h2>Choose Categories</h2>
+    <ul style="list-style-type:none;"></ol>
+</body>
+</html>

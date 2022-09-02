@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Details</title>
+    <link rel="stylesheet"  href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script>
+        function RegisterClick(){
+          document.getElementById("loginDetails").style.display ="block";
+          document.getElementById("lblName").innerHTML=document.getElementById("Name").value;
+          document.getElementById("lblEmail").innerHTML=document.getElementById("Email").value;
+          document.getElementById("lblPassword").innerHTML=document.getElementById("Password").value;
+          document.getElementById("lblCity").innerHTML=document.getElementById("City").value;
+          document.getElementById("lblAddress").innerHTML=document.getElementById("Address").value;
+        }
+    </script>
+</head>
+<body class="container-fluid">
+   <div class="mt-3">
+      <button class="btn btn-primary text-white" data-bs-target="#registration" data-bs-toggle="modal">UserLogin</button>
+      <div class="modal fade m-3" id="registration">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h2>Registration</h2>
+              <button class="btn btn-outline-danger" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+              <dl>
+                <dt>Name :</dt>
+                <dd><input type="text" class="form-control" id="Name"></dd>
+                <dt>Email :</dt>
+                <dd><input type="email" class="form-control" id="Email"></dd>
+                <dt>Password</dt>
+                <dd><input type="password" class="form-control" id="Password"></dd>
+                <dt>City</dt>
+                <dd><select id="City" class="form-select">
+                  <option>Hyd</option>
+                  <option>Delhi</option>
+                </select></dd>
+                <dt>Address</dt>
+                <dd>
+                  <textarea type="text" class="form-control" id="Address"></textarea>
+                </dd>
+              </dl>
+            </div>
+            <div class="modal-footer">
+              <button class="btn btn-success" onclick="RegisterClick()" data-bs-dismiss="modal">Register</button>
+              <button class="btn btn-warning" data-bs-dismiss="modal">Cancel</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+   <div class="mt-3" id="userDetails" style="display:none;">
+     <h2>Login Details</h2>
+     <dl class="row">
+         <dt class="col-3" id="lblName">Name : </dt>
+         <dd class="col-9"></dd>
+         <dt class="col-3" id="lblEmail">Email : </dt>
+         <dd class="col-9"></dd>
+         <dt class="col-3" id="lblPassword">Password : </dt>
+         <dd class="col-9"></dd>
+         <dt class="col-3" id="lblCity">City : </dt>
+         <dd class="col-9"></dd>
+         <dt class="col-3" id="lblAddress">Address :</dt>
+         <dd class="col-9"></dd>   
+     </dl>
+   </div>
+</body>
+</html>

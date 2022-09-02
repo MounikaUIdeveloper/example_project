@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Folder</title>
+    <script>
+      function CreateClick(){
+        FolderName=prompt("Enter Folder Name");
+        if(FolderName==null){
+            alert("You Cancelled")
+        }else if(FolderName==""){
+            alert("Please Enter Folder Name");
+        }
+        else{
+            document.querySelector("p").innerHTML ='Folder Created'+FolderName;
+        }
+      }
+    </script>
+</head>
+<body>
+   <button onclick="CreateClick()">Create Folder</button>
+   <p></p> 
+</body>
+</html>
